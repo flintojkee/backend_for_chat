@@ -15,10 +15,31 @@ function createMessage(messageData, callback) {
 }
 
 function getAllContacts(id, callback) {
-    let model = this.model;
-    let querry = model
+   let model = this.model;
+
+    let query = model.aggregate(
+        [
+            {
+                $match: {
+                        $or:[
+                            {senderId:id},
+                            {receiverId:id}
+                            ]
+                        }
+            },
+            {
+                $group : {
+                    _id : null,
+                    receivers: { $addToSet: "$receiverId" }
+                }
+            }
+        ]
+    );
+    query.exec(callback);
+
 }
 
 MessageRepository.prototype = new Repository();
 MessageRepository.prototype.createMessage = createMessage;
+MessageRepository.prototype.getAllContacts = getAllContacts;
 module.exports = new MessageRepository();

@@ -4,6 +4,7 @@ Repository.prototype.getAll = getAll;
 Repository.prototype.getById = getById;
 Repository.prototype.deleteById = deleteById;
 Repository.prototype.updateById = updateById;
+Repository.prototype.getAllById = getAllById;
 
 function getAll(callback) {
     var model = this.model;
@@ -12,9 +13,17 @@ function getAll(callback) {
 }
 
 function getById(id, callback) {
-    var model = this.model;
-    var query = model.findOne({
+    let model = this.model;
+    let query = model.findOne({
         _id: id
+    });
+    query.exec(callback);
+}
+
+function getAllById(ids, callback) {
+    let model = this.model;
+    let query = model.find({
+        '_id': { $in: ids}
     });
     query.exec(callback);
 }

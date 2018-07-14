@@ -12,9 +12,6 @@ module.exports = {
             callback(err, data);
         });
     },
-    /*getAllContacts: (id, callback) => {
-        MessageRepository.getAllContacts()
-    },*/
     createMessage: (messageData, callback) =>{
         MessageRepository.createMessage(messageData, (err, data) =>{
             callback(err, data);
@@ -27,6 +24,11 @@ module.exports = {
     },
     updateMessage: (id, data , callback) => {
         MessageRepository.updateById(id, data, (err, data) => {
+            callback(err, data);
+        })
+    },
+    getAllContacts: (id,callback) =>{
+        MessageRepository.getAllContacts(id, (err, data) =>{
             callback(err, data);
         })
     }

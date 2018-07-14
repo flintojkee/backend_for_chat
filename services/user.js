@@ -12,6 +12,11 @@ module.exports = {
             callback(err, data);
         });
     },
+    getAllById:(ids, callback) => {
+        UserRepository.getAllById(ids, (err, data) =>{
+            callback(err, data);
+        })
+    },
 
     createUser: (userData, callback) =>{
         UserRepository.createUser(userData, (err, data) =>{

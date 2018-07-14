@@ -1,5 +1,5 @@
 const messageService = require("../services/message");
-
+const userService = require("../services/user");
 
 exports.getAllMessages = (req, res) =>{
     messageService.findAll((err, data) => {
@@ -42,4 +42,18 @@ exports.updateMessage = (req, res) =>{
             res.sendStatus(400);
         }
     });
+};
+
+exports.getAllContacts = (req, res) => {
+    messageService.getAllContacts(req.params.id, (err, data) =>{
+        if(!err){
+            console.log(data[0].receivers);
+            userService.getAllById(data[0].receivers, (err, data) =>{
+                res.data = data;
+                res.json(res.data);
+            });
+        }else {
+            res.sendStatus(400);
+        }
+    })
 };
