@@ -243,7 +243,7 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "http://localhost:3000/api/message/5b4a263a715b4b326c285553",
+					"raw": "http://localhost:3000/api/contacts/user/5b4a2542715b4b326c285550",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -251,11 +251,36 @@
 					"port": "3000",
 					"path": [
 						"api",
-						"message",
-						"5b4a263a715b4b326c285553"
+						"contacts",
+						"user",
+						"5b4a2542715b4b326c285550"
 					]
 				},
 				"description": "Delete message"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/contacts/user/5b4a2542715b4b326c285550",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/api/contacts/user/5b4a2542715b4b326c285550",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"contacts",
+						"user",
+						"5b4a2542715b4b326c285550"
+					]
+				},
+				"description": "Get contacts of user"
 			},
 			"response": []
 		}

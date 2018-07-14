@@ -13,6 +13,18 @@ exports.getAllMessages = (req, res) =>{
     });
 };
 
+exports.getById = (req, res) =>{
+    messageService.findOne(req.params.id, (err, data) => {
+        if (!err) {
+            res.data = data;
+            res.json(res.data);
+        } else {
+            res.status(400);
+            res.end();
+        }
+    });
+};
+
 exports.createMessage = (req, res) =>{
    messageService.createMessage(req.body, (msg, err) =>{
         if(!err){

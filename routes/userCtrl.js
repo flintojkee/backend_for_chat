@@ -1,9 +1,20 @@
-const router = require("express").Router();
 const userService = require("../services/user");
 
 
 exports.getAllUsers = (req, res) =>{
     userService.findAll((err, data) => {
+        if (!err) {
+            res.data = data;
+            res.json(res.data);
+        } else {
+            res.status(400);
+            res.end();
+        }
+    });
+};
+
+exports.getById = (req, res) =>{
+    userService.findOne(req.params.id, (err, data) => {
         if (!err) {
             res.data = data;
             res.json(res.data);
