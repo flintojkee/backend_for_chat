@@ -1,0 +1,263 @@
+{
+	"info": {
+		"name": "ChatTesting",
+		"_postman_id": "f9462339-7659-fd14-98dd-292f4ab99cc3",
+		"description": "Реализовать бекенд для чата. Создать 2 сущности - пользователи и сообщения.\r\n\r\nКаждая из сущностей реализовывает CRUD (create, read, update, delete) через REST (post, get, put, delete).\r\nСущность пользователя содержит базовые поля (имя и пр.)\r\nСущность сообщения содержит senderId и receiverId (id пользователей), а также тело сообщения.\r\nСоздать роут, который возвращает всех пользователей, с которыми общался пользователь с данным id.\r\nДанные можно хранить в памяти или в MongoDB.\r\nРазбить ответственность модулей бекенда аналогично примеру - routes, services, repositories.\r\nОписать все роуты в README.md репозитория",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/api/user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"max\",\n\t\"email\":\"max@gmail.com\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user"
+					]
+				},
+				"description": "Create user"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/messages",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"den\",\n\t\"email\":\"flintojkee@gmail.com\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/messages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"messages"
+					]
+				},
+				"description": "Get all messages"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"den\",\n\t\"email\":\"flintojkee@gmail.com\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users"
+					]
+				},
+				"description": "Get all users"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/message",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"msg\":\"test\",\n\t\"senderId\":\"5b49f4005c3f50076060801c\",\n\t\"receiverId\":\"5b49eb5cd7c91c2ffc2bc0db\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/message",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"message"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/user/5b4a252d715b4b326c28554e",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/api/user/5b4a252d715b4b326c28554e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"5b4a252d715b4b326c28554e"
+					]
+				},
+				"description": "Delete user"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/user/5b4a254d715b4b326c285551",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "frankUpdated",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "frankUpdated@gmail.com",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/user/5b4a254d715b4b326c285551",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"5b4a254d715b4b326c285551"
+					]
+				},
+				"description": "Update user"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/message/5b4a2769715b4b326c285554",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "msg",
+							"value": "updatedTest",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/message/5b4a2769715b4b326c285554",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"message",
+						"5b4a2769715b4b326c285554"
+					]
+				},
+				"description": "Update message"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/message/5b4a263a715b4b326c285553",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/api/message/5b4a263a715b4b326c285553",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"message",
+						"5b4a263a715b4b326c285553"
+					]
+				},
+				"description": "Delete message"
+			},
+			"response": []
+		}
+	]
+}

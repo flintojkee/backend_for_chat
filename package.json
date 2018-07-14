@@ -1,0 +1,27 @@
+{
+  "name": "backend_for_chat",
+  "version": "1.0.0",
+  "description": "simple server for chat app made on NodeJs and MongoDB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flintojkee/backend_for_chat.git"
+  },
+  "author": "DenysVasylenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flintojkee/backend_for_chat/issues"
+  },
+  "homepage": "https://github.com/flintojkee/backend_for_chat#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "connect-mongo": "^2.0.1",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "mongoose": "^5.2.3",
+    "path": "^0.12.7"
+  }
+}
